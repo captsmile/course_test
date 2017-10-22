@@ -30,6 +30,14 @@ public class Triangle {
     }
 
     public double area() {
-        throw new UnsupportedOperationException();
+        double a = this.first.distanceTo(this.second);
+        double b = this.first.distanceTo(this.third);
+        double c = this.third.distanceTo(this.second);
+        double p = (a+b+c)/2.0;
+        double result;
+        result = Math.round( Math.sqrt(p*(p-a)*(p-b)*(p-c)));
+        System.out.println(result);
+        return result;
+
     }
 }
