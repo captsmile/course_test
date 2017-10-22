@@ -30,12 +30,15 @@ public class Calculator {
 
     public void div(double first, double second) {
         if (second == 0){
-
+            throw new IllegalStateException("Div by Zero");
         }
         result = first/second;
     }
 
     public void expand(double first, double second) {
-        throw new UnsupportedOperationException();
+        result=first;
+        for(int i=1;i!=second;i++){
+            result*=first;
+        }
     }
 }
