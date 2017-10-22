@@ -26,18 +26,29 @@ public class Triangle {
     }
 
     public boolean exists() {
-        throw new UnsupportedOperationException();
-    }
-
-    public double area() {
         double a = this.first.distanceTo(this.second);
         double b = this.first.distanceTo(this.third);
         double c = this.third.distanceTo(this.second);
-        double p = (a+b+c)/2.0;
-        double result;
-        result = Math.round( Math.sqrt(p*(p-a)*(p-b)*(p-c)));
-        System.out.println(result);
-        return result;
+        if ((a<b+c) && (b<a+c) && (c<a+b)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 
+    public double area() {
+        if (exists()) {
+            double a = this.first.distanceTo(this.second);
+            double b = this.first.distanceTo(this.third);
+            double c = this.third.distanceTo(this.second);
+            double p = (a + b + c) / 2.0;
+            double result;
+            result = Math.round(Math.sqrt(p * (p - a) * (p - b) * (p - c)));
+            return result;
+        }
+        else{
+            throw  new IllegalStateException("Not correct Triangle");
+        }
     }
 }
